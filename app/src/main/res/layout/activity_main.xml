@@ -55,7 +55,8 @@
         app:layout_constraintEnd_toEndOf="@+id/OptB"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/OptB"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/OptB"
@@ -67,7 +68,8 @@
         app:layout_constraintEnd_toEndOf="@+id/OptC"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/OptC"
-        app:layout_constraintTop_toTopOf="@+id/OptA" />
+        app:layout_constraintTop_toTopOf="@+id/OptA"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/OptC"
@@ -78,7 +80,8 @@
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/OptD"
-        app:layout_constraintTop_toTopOf="@+id/OptB" />
+        app:layout_constraintTop_toTopOf="@+id/OptB"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/OptD"
@@ -90,7 +93,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/OptB" />
+        app:layout_constraintTop_toBottomOf="@+id/OptB"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/Remarks"

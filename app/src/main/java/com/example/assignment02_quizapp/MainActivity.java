@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.OptC:
-                if ("Right Answer: " +OptC.getText() == answers[RanQues]) {
+                if (OptC.getText() == answers[RanQues]) {
                     Remarks.setText("Awesome *_*");
                     Remarks.setBackgroundColor(R.color.teal_700);
                     score++;
