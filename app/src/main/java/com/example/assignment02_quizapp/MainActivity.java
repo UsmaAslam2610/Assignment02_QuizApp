@@ -46,7 +46,15 @@ public class MainActivity extends AppCompatActivity {
         OList.add(2);
         OList.add(3);
 
-
+        Collections.shuffle(QList);
+        index = 0;
+        QNo.setText("Question No:\t\t\t"+(index+1)+"/5");
+        Score.setText("Score:\t\t\t"+ score);
+        Question.setText(getQuestion(index));
+        OptA.setText(getOpt(RanQues,OList.get(0)));
+        OptB.setText(getOpt(RanQues,OList.get(1)));
+        OptC.setText(getOpt(RanQues,OList.get(2)));
+        OptD.setText(getOpt(RanQues,OList.get(3)));
     }
     public String getQuestion(int a){
         RanQues = QList.get(a);
