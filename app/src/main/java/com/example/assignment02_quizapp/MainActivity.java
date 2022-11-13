@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView QNo, Question, Score,CorrectAns, Remarks;
     String [] statement ={"How many daily prayers are there in Islam?", "What is the holy book called in Islam?",
             "How many names does Allah have?","Who is the Last Prophet Of Allah?", "How Many Paras of Holy Quran?"};
-    String [] answers = {"5", "Quran", "99", "Hazrat Muhammad(P.B.U.H)", "30"};
+    String [] answers = {"5", "The Holy Quran", "99", "Hazrat Muhammad(P.B.U.H)", "30"};
     String [][] options = {{"4", "5", "7","3"}, {"The Holy Quran","Torah","Zabur", "Injil"}, {"99", "100", "101","90" }, {"Hazrat Adam", "Hazrat Muhammad(P.B.U.H)","Hazrat Dawood", "Hazrat Ibraheem"}, {"30","40","10","20"}};
     ArrayList<Integer> QList = new ArrayList<Integer>(5);
     ArrayList<Integer> OList = new ArrayList<Integer>(4);
@@ -30,9 +30,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         OptA = findViewById(R.id.OptA);
+        OptA.setOnClickListener(this);
         OptB = findViewById(R.id.OptB);
+        OptB.setOnClickListener(this);
         OptC = findViewById(R.id.OptC);
+        OptC.setOnClickListener(this);
         OptD = findViewById(R.id.OptD);
+        OptD.setOnClickListener(this);
         next = findViewById(R.id.nextBtn);
         QNo = findViewById(R.id.QNo);
         Question = findViewById(R.id.Question);
@@ -86,6 +90,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             OptB.setText(getOpt(RanQues,OList.get(1)));
             OptC.setText(getOpt(RanQues,OList.get(2)));
             OptD.setText(getOpt(RanQues,OList.get(3)));
+            OptA.setEnabled(true);
+            OptB.setEnabled(true);
+            OptC.setEnabled(true);
+            OptD.setEnabled(true);
         }
         else
             next.setEnabled(false);
@@ -93,55 +101,53 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @SuppressLint("ResourceAsColor")
     @Override
     public void onClick(View view) {
-        getCorrectAnswer();
         switch (view.getId()){
             case R.id.OptA:
-                if (("Right Answer: "+OptA.getText())  == getCorrectAnswer()){
-                    Remarks.setText("Awesome");
+                if (OptA.getText()  == answers[RanQues]){
+                    Remarks.setText("Awesome *_*");
                     Remarks.setBackgroundColor(R.color.teal_700);
                     score++;
-                    OptA.setEnabled(false);
-
                 } else {
-                    Remarks.setText("OOP");
+                    Remarks.setText("OOH :(");
                     Remarks.setBackgroundColor(R.color.red);
                 }
                 break;
             case R.id.OptB:
-                if (("Right Answer: "+OptB.getText())  == getCorrectAnswer()) {
-                    Remarks.setText("Awesome");
+                if (OptB.getText() == answers[RanQues]) {
+                    Remarks.setText("Awesome *_*");
                     Remarks.setBackgroundColor(R.color.teal_700);
                     score++;
-                    OptB.setEnabled(false);
                 } else {
-                    Remarks.setText("OOP");
+                    Remarks.setText("OOH :(");
                     Remarks.setBackgroundColor(R.color.red);
                 }
                 break;
             case R.id.OptC:
-                if (("Right Answer: " + OptC.getText()) == getCorrectAnswer()) {
-                    Remarks.setText("Awesome");
+                if ("Right Answer: " +OptC.getText() == answers[RanQues]) {
+                    Remarks.setText("Awesome *_*");
                     Remarks.setBackgroundColor(R.color.teal_700);
                     score++;
-                    OptC.setEnabled(false);
                 } else {
-                    Remarks.setText("OOP");
+                    Remarks.setText("OOH :(");
                     Remarks.setBackgroundColor(R.color.red);
                 }
                 break;
             case R.id.OptD:
-                if (("Right Answer: "+OptD.getText()) == getCorrectAnswer()) {
-                    Remarks.setText("Awesome");
+                if (OptD.getText() == answers[RanQues]) {
+                    Remarks.setText("Awesome *_*");
                     Remarks.setBackgroundColor(R.color.teal_700);
                     score++;
-                    OptD.setEnabled(false);
                 } else {
-                    Remarks.setText("OOP");
+                    Remarks.setText("OOH :(");
                     Remarks.setBackgroundColor(R.color.red);
                 }
                 break;
         }
         Score.setText("Score:\t\t\t"+ score);
         CorrectAns.setText(getCorrectAnswer());
+        OptA.setEnabled(false);
+        OptB.setEnabled(false);
+        OptC.setEnabled(false);
+        OptD.setEnabled(false);
     }
 }
