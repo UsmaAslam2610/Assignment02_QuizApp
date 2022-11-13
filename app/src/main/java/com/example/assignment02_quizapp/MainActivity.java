@@ -45,5 +45,19 @@ public class MainActivity extends AppCompatActivity {
         OList.add(1);
         OList.add(2);
         OList.add(3);
+
+
     }
+    public String getQuestion(int a){
+        RanQues = QList.get(a);
+        return "Q: "+ statement[RanQues];
+    }
+
+    public String getOpt(int a,int b){
+        return options[a][b];
+    }
+    public String getCorrectAnswer() {
+        return "Right Answer: "+answers[RanQues];
+    }
+
 }
