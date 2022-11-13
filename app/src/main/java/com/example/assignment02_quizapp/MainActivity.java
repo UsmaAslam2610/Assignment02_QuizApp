@@ -2,6 +2,9 @@ package com.example.assignment02_quizapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     Button OptA, OptB, OptC, OptD,next;
     TextView QNo, Question, Score,CorrectAns, Remarks;
     String [] statement ={"How many daily prayers are there in Islam?", "What is the holy book called in Islam?",
@@ -21,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Integer> QList = new ArrayList<Integer>(5);
     ArrayList<Integer> OList = new ArrayList<Integer>(4);
     int RanQues = 0, index = 0, score = 0;
+    String answer = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
         RanQues = QList.get(a);
         return "Q: "+ statement[RanQues];
     }
-
     public String getOpt(int a,int b){
         return options[a][b];
     }
@@ -69,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
     }
     public void NextButton(View view) {
         index++;
+        if(index == 4)
+            next.setEnabled(false);
         if (index < 5)
         {
             QNo.setText("Question No:\t\t\t"+(index+1)+"/5");
@@ -82,5 +87,61 @@ public class MainActivity extends AppCompatActivity {
             OptC.setText(getOpt(RanQues,OList.get(2)));
             OptD.setText(getOpt(RanQues,OList.get(3)));
         }
+        else
+            next.setEnabled(false);
+    }
+    @SuppressLint("ResourceAsColor")
+    @Override
+    public void onClick(View view) {
+        getCorrectAnswer();
+        switch (view.getId()){
+            case R.id.OptA:
+                if (("Right Answer: "+OptA.getText())  == getCorrectAnswer()){
+                    Remarks.setText("Awesome");
+                    Remarks.setBackgroundColor(R.color.teal_700);
+                    score++;
+                    OptA.setEnabled(false);
+
+                } else {
+                    Remarks.setText("OOP");
+                    Remarks.setBackgroundColor(R.color.red);
+                }
+                break;
+            case R.id.OptB:
+                if (("Right Answer: "+OptB.getText())  == getCorrectAnswer()) {
+                    Remarks.setText("Awesome");
+                    Remarks.setBackgroundColor(R.color.teal_700);
+                    score++;
+                    OptB.setEnabled(false);
+                } else {
+                    Remarks.setText("OOP");
+                    Remarks.setBackgroundColor(R.color.red);
+                }
+                break;
+            case R.id.OptC:
+                if (("Right Answer: " + OptC.getText()) == getCorrectAnswer()) {
+                    Remarks.setText("Awesome");
+                    Remarks.setBackgroundColor(R.color.teal_700);
+                    score++;
+                    OptC.setEnabled(false);
+                } else {
+                    Remarks.setText("OOP");
+                    Remarks.setBackgroundColor(R.color.red);
+                }
+                break;
+            case R.id.OptD:
+                if (("Right Answer: "+OptD.getText()) == getCorrectAnswer()) {
+                    Remarks.setText("Awesome");
+                    Remarks.setBackgroundColor(R.color.teal_700);
+                    score++;
+                    OptD.setEnabled(false);
+                } else {
+                    Remarks.setText("OOP");
+                    Remarks.setBackgroundColor(R.color.red);
+                }
+                break;
+        }
+        Score.setText("Score:\t\t\t"+ score);
+        CorrectAns.setText(getCorrectAnswer());
     }
 }

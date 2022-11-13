@@ -49,7 +49,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="232dp"
-        android:text="A) "
         app:layout_constraintEnd_toEndOf="@+id/OptB"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/OptB"
@@ -61,7 +60,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="68dp"
-        android:text="B)"
         app:layout_constraintEnd_toEndOf="@+id/OptC"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/OptC"
@@ -73,7 +71,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="68dp"
-        android:text="C)"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/OptD"
         app:layout_constraintTop_toTopOf="@+id/OptB" />
@@ -84,7 +81,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="88dp"
-        android:text="D)"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,12 +93,11 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="2dp"
         android:textSize="18sp"
-        android:text="Remarks"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/OptD"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"/>
 
     <TextView
         android:id="@+id/CorrectAns"
@@ -110,7 +105,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="108dp"
-        android:text="Right Answer is: "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
