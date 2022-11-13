@@ -25,6 +25,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        OptA = findViewById(R.id.OptA);
+        OptB = findViewById(R.id.OptB);
+        OptC = findViewById(R.id.OptC);
+        OptD = findViewById(R.id.OptD);
+        next = findViewById(R.id.nextBtn);
+        QNo = findViewById(R.id.QNo);
+        Question = findViewById(R.id.Question);
+        Score = findViewById(R.id.Score);
+        CorrectAns = findViewById(R.id.CorrectAns);
+        Remarks = findViewById(R.id.Remarks);
+        QList.add(0);
+        QList.add(1);
+        QList.add(2);
+        QList.add(3);
+        QList.add(4);
 
+        OList.add(0);
+        OList.add(1);
+        OList.add(2);
+        OList.add(3);
     }
 }
