@@ -67,5 +67,20 @@ public class MainActivity extends AppCompatActivity {
     public String getCorrectAnswer() {
         return "Right Answer: "+answers[RanQues];
     }
-
+    public void NextButton(View view) {
+        index++;
+        if (index < 5)
+        {
+            QNo.setText("Question No:\t\t\t"+(index+1)+"/5");
+            Score.setText("Score:\t\t\t"+ score);
+            Question.setText(getQuestion(index));
+            CorrectAns.setText(" ");
+            Remarks.setText("");
+            Collections.shuffle(OList);
+            OptA.setText(getOpt(RanQues,OList.get(0)));
+            OptB.setText(getOpt(RanQues,OList.get(1)));
+            OptC.setText(getOpt(RanQues,OList.get(2)));
+            OptD.setText(getOpt(RanQues,OList.get(3)));
+        }
+    }
 }
