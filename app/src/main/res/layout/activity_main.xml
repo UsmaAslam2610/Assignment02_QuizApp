@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
+    android:background="@color/cardview_dark_background"
     tools:context=".MainActivity">
 
     <TextView
@@ -51,6 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="232dp"
+        android:background="#00796B"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="@+id/OptB"
         app:layout_constraintHorizontal_bias="0.0"
@@ -64,6 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="68dp"
+        android:background="#00796B"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="@+id/OptC"
         app:layout_constraintHorizontal_bias="0.498"
@@ -77,6 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="68dp"
+        android:background="#00796B"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/OptD"
@@ -89,6 +93,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="88dp"
+        android:background="#00796B"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -128,6 +133,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
+        android:background="#00796B"
         android:onClick="NextButton"
         android:text="Next"
         android:textSize="15dp"

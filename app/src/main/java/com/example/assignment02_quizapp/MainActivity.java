@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Score = findViewById(R.id.Score);
         CorrectAns = findViewById(R.id.CorrectAns);
         Remarks = findViewById(R.id.Remarks);
+
         QList.add(0);
         QList.add(1);
         QList.add(2);
