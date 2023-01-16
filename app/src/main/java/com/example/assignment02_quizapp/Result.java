@@ -1,6 +1,7 @@
 package com.example.assignment02_quizapp;
 
 public class Result{
+    private String Question;
     private String Answer;
     private String SubmittedAnswer;
     private String Status;
@@ -9,10 +10,19 @@ public class Result{
         return Answer;
     }
 
-    public Result(String answer, String submittedAnswer, String status) {
+    public Result( String question,String answer, String submittedAnswer, String status) {
         this.Answer = answer;
         this.SubmittedAnswer = submittedAnswer;
         this.Status = status;
+        this.Question = question;
+    }
+
+    public String getQuestion() {
+        return Question;
+    }
+
+    public void setQuestion(String question) {
+        Question = question;
     }
 
     public String getStatus() {
