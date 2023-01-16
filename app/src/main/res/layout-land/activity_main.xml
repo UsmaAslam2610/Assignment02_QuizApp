@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_dark_background"
+    android:visibility="visible"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/QNo"
+        android:layout_width="240dp"
+        android:layout_height="32dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="12dp"
+        android:text="@string/questionNo"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/Score"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Score"
+        android:layout_width="240dp"
+        android:layout_height="32dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="70dp"
+        android:text="@string/score"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/Question"
+        app:layout_constraintStart_toStartOf="@+id/QNo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Question"
+        android:layout_width="638dp"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/question"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/OptC"
+        app:layout_constraintEnd_toEndOf="@+id/OptB"
+        app:layout_constraintStart_toStartOf="@+id/Score" />
+
+    <Button
+        android:id="@+id/OptA"
+        android:layout_width="298dp"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="43dp"
+        android:background="#00796B"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/OptD"
+        app:layout_constraintEnd_toStartOf="@+id/OptD"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/OptD"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/OptB"
+        android:layout_width="298dp"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="30dp"
+        android:background="#00796B"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/OptD"
+        app:layout_constraintStart_toStartOf="@+id/OptD"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/OptC"
+        android:layout_width="298dp"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="30dp"
+        android:background="#00796B"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/OptA"
+        app:layout_constraintStart_toStartOf="@+id/OptA"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/OptD"
+        android:layout_width="298dp"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="83dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="84dp"
+        android:background="#00796B"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/nextBtn"
+        app:layout_constraintEnd_toEndOf="@+id/nextBtn"
+        app:layout_constraintTop_toBottomOf="@+id/Question"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/Remarks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginBottom="26dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/OptA" />
+
+    <TextView
+        android:id="@+id/CorrectAns"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="30dp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/nextBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="24dp"
+        android:background="#00796B"
+        android:onClick="NextButton"
+        android:text="@string/next"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
