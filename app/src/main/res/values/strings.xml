@@ -4,4 +4,5 @@
     <string name="questionNo">Question No: \t\t</string>
     <string name="question">Q: </string>
     <string name="next">Next</string>
+    <string name="Commits">Commits</string>
 </resources>
