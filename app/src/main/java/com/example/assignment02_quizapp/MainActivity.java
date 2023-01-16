@@ -3,6 +3,7 @@ package com.example.assignment02_quizapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String [][] options = {{"4", "5", "7","3"}, {"The Holy Quran","Torah","Zabur", "Injil"}, {"99", "100", "101","90" }, {"Hazrat Adam", "Hazrat Muhammad(P.B.U.H)","Hazrat Dawood", "Hazrat Ibraheem"}, {"30","40","10","20"}};
     ArrayList<Integer> QList = new ArrayList<Integer>(5);
     ArrayList<Integer> OList = new ArrayList<Integer>(4);
+    DbHelper db;
     int RanQues = 0, index = 0, score = 0;
     String answer = "";
     @Override
@@ -64,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         OptB.setText(getOpt(RanQues,OList.get(1)));
         OptC.setText(getOpt(RanQues,OList.get(2)));
         OptD.setText(getOpt(RanQues,OList.get(3)));
+        db = new DbHelper(this);
     }
     public String getQuestion(int a){
         RanQues = QList.get(a);
@@ -107,44 +110,62 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (OptA.getText()  == answers[RanQues]){
                     Remarks.setText("Awesome *_*");
                     Remarks.setBackgroundColor(R.color.teal_700);
+                    Result result = new Result(answers[RanQues],OptA.getText().toString(),"T");
+                    db.insertResult(result);
                     score++;
                 } else {
                     Remarks.setText("OOH :(");
                     Remarks.setBackgroundColor(R.color.red);
+                    Result result = new Result(answers[RanQues],OptA.getText().toString(),"F");
+                    db.insertResult(result);
                 }
                 break;
             case R.id.OptB:
                 if (OptB.getText() == answers[RanQues]) {
                     Remarks.setText("Awesome *_*");
                     Remarks.setBackgroundColor(R.color.teal_700);
+                    Result result = new Result(answers[RanQues],OptB.getText().toString(),"T");
+                    db.insertResult(result);
                     score++;
                 } else {
                     Remarks.setText("OOH :(");
                     Remarks.setBackgroundColor(R.color.red);
+                    Result result = new Result(answers[RanQues],OptB.getText().toString(),"F");
+                    db.insertResult(result);
                 }
                 break;
             case R.id.OptC:
                 if (OptC.getText() == answers[RanQues]) {
                     Remarks.setText("Awesome *_*");
                     Remarks.setBackgroundColor(R.color.teal_700);
+                    Result result = new Result(answers[RanQues],OptC.getText().toString(),"T");
+                    db.insertResult(result);
                     score++;
                 } else {
                     Remarks.setText("OOH :(");
                     Remarks.setBackgroundColor(R.color.red);
+                    Result result = new Result(answers[RanQues],OptC.getText().toString(),"F");
+                    db.insertResult(result);
                 }
                 break;
             case R.id.OptD:
                 if (OptD.getText() == answers[RanQues]) {
                     Remarks.setText("Awesome *_*");
                     Remarks.setBackgroundColor(R.color.teal_700);
+                    Result result = new Result(answers[RanQues],OptD.getText().toString(),"T");
+                    db.insertResult(result);
+
                     score++;
                 } else {
                     Remarks.setText("OOH :(");
                     Remarks.setBackgroundColor(R.color.red);
+                    Result result = new Result(answers[RanQues],OptD.getText().toString(),"F");
+                    db.insertResult(result);
                 }
                 break;
         }
-        Score.setText("Score:\t\t\t"+ score);
+
+        Score.setText("Score:\t\t\t"+ db.select());
         CorrectAns.setText(getCorrectAnswer());
         OptA.setEnabled(false);
         OptB.setEnabled(false);
