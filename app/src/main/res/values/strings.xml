@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Assignment02_QuizApp</string>
+    <string name="score">Score: </string>
+    <string name="questionNo">Question No: \t\t</string>
+    <string name="question">Q: </string>
+    <string name="next">Next</string>
 </resources>
