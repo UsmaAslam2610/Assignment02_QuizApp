@@ -3,6 +3,7 @@ package com.example.assignment02_quizapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.content.res.Resources;
@@ -24,8 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String [][] options = {{"4", "5", "7","3"}, {"The Holy Quran","Torah","Zabur", "Injil"}, {"99", "100", "101","90" }, {"Hazrat Adam", "Hazrat Muhammad(P.B.U.H)","Hazrat Dawood", "Hazrat Ibraheem"}, {"30","40","10","20"}};
     ArrayList<Integer> QList = new ArrayList<Integer>(5);
     ArrayList<Integer> OList = new ArrayList<Integer>(4);
+    String [][] data;
     DbHelper db;
-    int RanQues = 0, index = 0, score = 0;
+    int RanQues = 0, index = 0,score=0;
     String answer = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +62,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Collections.shuffle(QList);
         index = 0;
         QNo.setText("Question No:\t\t\t"+(index+1)+"/5");
-        Score.setText("Score:\t\t\t"+ score);
+        score = db.select();
+        Score.setText("Score:\t\t\t"+ db.select());
         Question.setText(getQuestion(index));
         OptA.setText(getOpt(RanQues,OList.get(0)));
         OptB.setText(getOpt(RanQues,OList.get(1)));
@@ -81,11 +84,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void NextButton(View view) {
         index++;
         if(index == 4)
-            next.setEnabled(false);
+        {
+            next.setText("Show Results");
+            next.setEnabled(true);
+            score = db.select();
+            int incorrect = 5-score;
+            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+            intent.putExtra("keycorrect", score);
+            intent.putExtra("keyIncorrect",incorrect+"");
+            intent.putExtra("data",db.selectAllStudents().toArray());
+            startActivity(intent);
+        }
         if (index < 5)
         {
             QNo.setText("Question No:\t\t\t"+(index+1)+"/5");
-            Score.setText("Score:\t\t\t"+ score);
+            score = db.select();
+            Score.setText("Score:\t\t\t"+ db.select());
             Question.setText(getQuestion(index));
             CorrectAns.setText(" ");
             Remarks.setText("");
@@ -110,13 +124,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (OptA.getText()  == answers[RanQues]){
                     Remarks.setText("Awesome *_*");
                     Remarks.setBackgroundColor(R.color.teal_700);
-                    Result result = new Result(answers[RanQues],OptA.getText().toString(),"T");
-                    db.insertResult(result);
-                    score++;
+                    Result result = new Result(Question.getText().toString(),answers[RanQues],OptA.getText().toString(),"T");
+
                 } else {
                     Remarks.setText("OOH :(");
                     Remarks.setBackgroundColor(R.color.red);
-                    Result result = new Result(answers[RanQues],OptA.getText().toString(),"F");
+                    Result result = new Result(Question.getText().toString(),answers[RanQues],OptA.getText().toString(),"F");
                     db.insertResult(result);
                 }
                 break;
@@ -124,13 +137,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (OptB.getText() == answers[RanQues]) {
                     Remarks.setText("Awesome *_*");
                     Remarks.setBackgroundColor(R.color.teal_700);
-                    Result result = new Result(answers[RanQues],OptB.getText().toString(),"T");
+                    Result result = new Result(Question.getText().toString(),answers[RanQues],OptB.getText().toString(),"T");
                     db.insertResult(result);
-                    score++;
                 } else {
                     Remarks.setText("OOH :(");
                     Remarks.setBackgroundColor(R.color.red);
-                    Result result = new Result(answers[RanQues],OptB.getText().toString(),"F");
+                    Result result = new Result(Question.getText().toString(),answers[RanQues],OptB.getText().toString(),"F");
                     db.insertResult(result);
                 }
                 break;
@@ -138,13 +150,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (OptC.getText() == answers[RanQues]) {
                     Remarks.setText("Awesome *_*");
                     Remarks.setBackgroundColor(R.color.teal_700);
-                    Result result = new Result(answers[RanQues],OptC.getText().toString(),"T");
+                    Result result = new Result(Question.getText().toString(),answers[RanQues],OptC.getText().toString(),"T");
                     db.insertResult(result);
-                    score++;
                 } else {
                     Remarks.setText("OOH :(");
                     Remarks.setBackgroundColor(R.color.red);
-                    Result result = new Result(answers[RanQues],OptC.getText().toString(),"F");
+                    Result result = new Result(Question.getText().toString(),answers[RanQues],OptC.getText().toString(),"F");
                     db.insertResult(result);
                 }
                 break;
@@ -152,20 +163,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (OptD.getText() == answers[RanQues]) {
                     Remarks.setText("Awesome *_*");
                     Remarks.setBackgroundColor(R.color.teal_700);
-                    Result result = new Result(answers[RanQues],OptD.getText().toString(),"T");
+                    Result result = new Result(Question.getText().toString(),answers[RanQues],OptD.getText().toString(),"T");
                     db.insertResult(result);
-
-                    score++;
                 } else {
                     Remarks.setText("OOH :(");
                     Remarks.setBackgroundColor(R.color.red);
-                    Result result = new Result(answers[RanQues],OptD.getText().toString(),"F");
+                    Result result = new Result(Question.getText().toString(),answers[RanQues],OptD.getText().toString(),"F");
                     db.insertResult(result);
                 }
                 break;
         }
-
-        Score.setText("Score:\t\t\t"+ db.select());
+        score = db.select();
+        Score.setText("Score:\t\t\t"+ score);
         CorrectAns.setText(getCorrectAnswer());
         OptA.setEnabled(false);
         OptB.setEnabled(false);
